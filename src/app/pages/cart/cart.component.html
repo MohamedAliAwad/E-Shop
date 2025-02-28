@@ -1,0 +1,60 @@
+<section class="main-section w-[75%]">
+  <div>
+    <h1 class="text-center text-green-600 text-3xl font-extrabold">
+      Shop Cart
+    </h1>
+    <div class="flex items-center justify-between">
+      <span class="text-green-500 text-xl"
+      >Total Cart Price
+      {{ cartDetails.totalCartPrice | currency : "GBP" }}</span
+    >
+    <button class="text-sm text-white bg-red-600 rounded py-2 px-4" (click)="clearCart()"><i class="fa-solid fa-eraser"></i> Clear Cart </button>
+
+    </div>
+
+    @for (pro of cartDetails.products; track pro.product.id) {
+
+    <div class="grid md:grid-cols-[15%_minmax(0,1fr)] mb-3 border-b">
+      <!-- md:grid-cols-[10%_minmax(0,1fr)] -->
+
+      <div>
+        <img
+          [src]="pro.product.imageCover"
+          class="w-full h-[150px] object-contain"
+          [alt]="pro.product.title"
+        />
+      </div>
+      <div>
+        <div class="flex justify-between items-center h-[150px]">
+          <!-- info -->
+          <div class="flex gap-y-4 items-start flex-col">
+            <h2>{{ pro.product.title }}</h2>
+            <h4>Price : {{ pro.price | currency : "GBP" }}</h4>
+            <button
+              class="hover:bg-green-400 rounded p-2 w-full hover:text-white transition-all"
+              (click)="removeItem(pro.product.id)"
+            >
+              <i class="fas fa-trash text-red-500 hover:text-red-600"></i>
+              Remove
+            </button>
+          </div>
+
+          <!-- btn -->
+          <div class="flex items-center gap-3 justify-between">
+            <button (click)="updateItemQty(pro.product.id, pro.count + 1)">
+              <i class="fa-solid fa-circle-plus text-green-500 text-3xl"></i>
+            </button>
+            <span>{{ pro.count }}</span>
+            <button (click)="updateItemQty(pro.product.id, pro.count - 1)">
+              <i class="fa-solid fa-circle-minus text-green-500 text-3xl"> </i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    }
+
+    <button [routerLink]="['/checkout', cartDetails._id]" class="btn-main">Check Out</button>
+  </div>
+</section>
