@@ -8,9 +8,10 @@ import { CurrencyPipe } from '@angular/common';
 import { SearchPipePipe } from '../../shards/pipes/search/search-pipe.pipe';
 import { FormsModule, NgModel } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { log } from 'console';
+
 import { CartService } from '../../core/services/cart/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -24,8 +25,10 @@ export class HomeComponent implements OnInit {
 
 private readonly productsService = inject(ProductsService);
 private readonly categoriesService = inject(CategoriesService);
-private readonly cartService = inject(CartService)
-private readonly toastr=inject(ToastrService)
+private readonly cartService = inject(CartService);
+private readonly toastr=inject(ToastrService);
+
+
 products:IProduct[] = [];
 categories:ICategory[] = [];
 
@@ -79,6 +82,7 @@ getAllProducts():void{
   this.productsService.getProducts().subscribe(  {
     next: (response) => {
       console.log(response.data);
+
       this.products =response.data;
     },
     error: (error) => {
@@ -88,10 +92,12 @@ getAllProducts():void{
 }
 
 getAllCategories():void{
+
   this.categoriesService.getAllCategories().subscribe(  {
     next: (response) => {
       console.log(response.data);
       this.categories =response.data;
+
     },
     error: (error) => {
       console.log(error);
