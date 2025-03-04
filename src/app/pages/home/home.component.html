@@ -94,20 +94,22 @@
             </div>
           </div>
         </div>
-        <button
+
+
+
+    </div>
+    <button
           (click)="addToCart(product._id)"
           class="cart-btn bg-green-500 p-3 text-center text-white border border-yellow-300- rounded-lg w-[100%]"
         >
           Add to Cart
         </button>
-      </div>
-      @if (isInWishList(product._id)) {
-        <button (click)="removeFromWishList(product._id)"><i class="fa-regular fa-heart text-3xl text-pink-500"></i></button>
-      }@else {
-        <button (click)="addToWishList(product._id)"><i class="fa-regular fa-heart text-3xl text-pink-500"></i></button>
-      }
-
-    </div>
+        @if (isInWishList(product._id)) {
+          <button (click)="removeFromWishList(product._id)"><i class="fa-regular fa-heart text-3xl text-pink-500"></i></button>
+        }@else {
+          <button (click)="addToWishList(product._id)"><i class="fa-regular fa-heart text-3xl text-pink-500"></i></button>
+        }
+  </div>
 
 
 

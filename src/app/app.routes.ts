@@ -20,7 +20,7 @@ export const routes: Routes = [
     {path:"home", loadComponent:()=>import('./pages/home/home.component').then((c)=>c.HomeComponent), title: "Home", canActivate: [authGuard]},
     {path:"products", loadComponent: ()=>import('./pages/products/products.component').then((c)=>c.ProductsComponent), title: "Products"},
     {path:"details/:id", loadComponent: ()=>import('./pages/details/details.component').then((c)=>c.DetailsComponent), title: "Products"},
-    {path:"products/:id", component: ProductsComponent, title: "Product"},
+    // {path:"products/:id", component: ProductsComponent, title: "Product"},
     {path:"cart", loadComponent: ()=>import('./pages/cart/cart.component').then((c)=>c.CartComponent), title: "Cart"},
     {path:"checkout/:id", loadComponent: ()=> import('./pages/checkout/checkout.component').then((c)=>c.CheckoutComponent), title: "Checkout"},
     {path:"brands", loadComponent: ()=>import('./pages/brands//brands.component').then((c)=>c.BrandsComponent), title: "Cart"},

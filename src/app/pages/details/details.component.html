@@ -6,7 +6,7 @@
     <div class="proDetails w-3/4  flex flex-col justify-between sm:h-22 sm:mt-20 md:h-48 md:mt-30">
 <h2 class="text-green-900 font-bold text-3xl py-1">{{productDetails.title}}</h2>
 <p class="text-gray-800 font-medium">{{productDetails.description}}</p>
-<button class="bg-green-500 p-3 text-center text-white border border-yellow-300- rounded-lg w-[50%] mt-24">Add to Cart</button>
+<button (click)="addToCart(productDetails._id)" class="bg-green-500 p-3 text-center text-white border border-yellow-300- rounded-lg w-[50%] mt-24">Add to Cart</button>
 
     </div>
   </div>
