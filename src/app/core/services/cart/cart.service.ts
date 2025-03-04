@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 export class CartService {
 
   constructor(private  httpClient : HttpClient) { }
+  cartNumber:BehaviorSubject<number> = new BehaviorSubject(0);
 
   token:any = localStorage.getItem('token');
 

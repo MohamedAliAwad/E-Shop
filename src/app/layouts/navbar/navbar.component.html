@@ -38,7 +38,8 @@
 
       <ul class="font-medium items-center capitalize flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 ms-auto">
         <li>
-          <a routerLink="cart" routerLinkActive="text-green-500 text-3xl " class="block text-4xl hover:text-green-600   text-center text-gray-700 py-2 px-3 rounded-sm " aria-current="page"><i class="fas fa-cart-shopping"></i></a>
+          <a routerLink="cart" routerLinkActive="text-green-500 text-3xl " class="block text-4xl hover:text-green-600   text-center text-gray-700 py-2 px-3 rounded-sm relative" aria-current="page"><i class="fas fa-cart-shopping"></i>
+            <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset absolute top-0 left-0">{{countCart}}</span></a>
         </li>
         <li>
           <a href="#" class="block text-gray-700 py-2 px-3 rounded-sm " aria-current="page">
